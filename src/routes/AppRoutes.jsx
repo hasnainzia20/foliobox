@@ -17,7 +17,7 @@ function PrivateRoute({ children }) {
 
 export default function AppRoutes() {
   return (
-    <Router>
+    <Router basename="/foliobox">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
