@@ -30,14 +30,15 @@ function Dashboard() {
                 <NavLink
                   to="/dashboard"
                   className={({ isActive }) =>
-                    isActive ? "text-3xl text-white" : "bg-blue-400  "
+                    isActive ? "text-2xl text-white" : "bg-blue-400  "
                   }
                 >
                   Home
                 </NavLink>
+                
               </li>
-              <li className="p-4 text-3xl text-white w-full">
-                <button onClick={() => handleSignOut(auth)}>Signout</button>
+              <li className="p-4 text-2xl text-gray-700  w-full">
+                <button className="hover:cursor-pointer" onClick={() => handleSignOut(auth)}>Signout</button>
               </li>
             </ul>
           </div>

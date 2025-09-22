@@ -372,7 +372,7 @@ function Builder() {
 
             <ul className="flex flex-col gap-4">
               {state.languages.map((lang, i) => (
-                <li key={i} className="flex gap-2 items-center">
+                <li key={i} className="flex flex-col gap-1">
                   <input
                     type="text"
                     placeholder="Language"
