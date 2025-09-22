@@ -5,8 +5,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import Login from "../pages/login/Login";
+import Builder from "../pages/builder/Builder";
 import Dashboard from "../pages/dashboard/Dashboard";
-import Portfolio from "../pages/portfolio/PortFolio";
 import { useAuth } from "../context/AuthContext";
 
 function PrivateRoute({ children }) {
@@ -28,7 +28,15 @@ export default function AppRoutes() {
             </PrivateRoute>
           }
         />
-        <Route path="/u/:slug" element={<Portfolio />} />
+        <Route
+          path="/builder/:templateId"
+          element={
+            <PrivateRoute>
+              <Builder />
+            </PrivateRoute>
+          }
+        />
+        {/* <Route path="/u/:slug" element={<Portfolio />} /> */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
