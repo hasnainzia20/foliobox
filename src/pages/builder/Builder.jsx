@@ -1,6 +1,7 @@
 import { useReducer, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Minimalist from "../../components/templates/Minimalist";
+import Modern from "../../components/templates/Modern";
 import { MdOutlineCancel } from "react-icons/md";
 import { formReducer, initialState } from "../../reducers/formReducer";
 import { NavLink } from "react-router-dom";
@@ -293,7 +294,7 @@ function Builder() {
                 </button>
                 <button
                   type="button"
-                  className="border border-[#9ca3af] rounded-md py-1 px-3 bg-[#9ca3af] text-[#ffffff] mt-2"
+                  className="border border-[#9ca3af] rounded-md py-1 px-3 bg-gradient-to-bl from-red-300 to-red-500 text-[#ffffff] mt-2 mr-2"
                   onClick={() =>
                     dispatch({ type: "DELETE_EDUCATION", index: i })
                   }
@@ -406,7 +407,7 @@ function Builder() {
                   </select>
                   <button
                     type="button"
-                    className="bg-gradient-to-bl from-[#9ca3af] to-[#374151] text-[#ffffff] px-3 py-1 rounded-md"
+                    className="border border-[#9ca3af] rounded-md py-1 px-3 bg-gradient-to-bl from-red-300 to-red-500 text-[#ffffff] mt-2 mr-2"
                     onClick={() =>
                       dispatch({ type: "DELETE_LANGUAGE", index: i })
                     }
@@ -463,7 +464,7 @@ function Builder() {
                         value: e.target.value,
                       })
                     }
-                    className="border border-[#9ca3af] rounded-md p-2 flex-1"
+                    className="border border-[#9ca3af] rounded-md py-2 flex-1"
                   />
                   <input
                     type="month"
@@ -477,7 +478,7 @@ function Builder() {
                         value: e.target.value,
                       })
                     }
-                    className="border border-[#9ca3af] rounded-md p-2 flex-1"
+                    className="border border-[#9ca3af] rounded-md py-2 flex-1"
                   />
                 </div>
 
@@ -502,7 +503,7 @@ function Builder() {
                       />
                       <button
                         type="button"
-                        className="bg-gradient-to-bl from-[#9ca3af] to-[#374151] text-[#ffffff] px-3 rounded"
+                        className="border border-[#9ca3af] rounded-md py-1 px-3 bg-gradient-to-bl from-red-300 to-red-500 text-[#ffffff] mt-2 mr-2"
                         onClick={() =>
                           dispatch({
                             type: "DELETE_RESPONSIBILITY",
@@ -522,7 +523,7 @@ function Builder() {
                       dispatch({ type: "ADD_RESPONSIBILITY", index: i })
                     }
                   >
-                    + Add Responsibility
+                    + Add Duties
                   </button>
                 </div>
 
@@ -546,34 +547,36 @@ function Builder() {
             </button>
           </div>
           {/* submit */}
-          <button
-            className="border border-[#9ca3af] rounded-md py-2 px-6 text-xl text-[#ffffff] bg-gradient-to-bl from-[#9ca3af] to-[#374151] mt-4"
-            type="button"
-            onClick={saveResume}
-          >
-            Save
-          </button>
-          <button
-            className="border border-[#9ca3af] rounded-md py-2 px-6 text-xl text-[#ffffff] bg-gradient-to-bl from-[#9ca3af] to-[#374151] mt-4"
-            type="button"
-            onClick={handleExportPdf}
-          >
-            Export PDF
-          </button>
+          <div className="flex gap-4">
+            <button
+              className="border border-[#9ca3af] rounded-md py-2 px-6 text-xl text-[#ffffff] bg-gradient-to-bl from-green-500 to-green-700 mt-4"
+              type="button"
+              onClick={saveResume}
+            >
+              Save
+            </button>
+            <button
+              className="border border-[#9ca3af] rounded-md py-2 px-6 text-xl text-[#ffffff] bg-gradient-to-bl from-[#9ca3af] to-orange-500 mt-4"
+              type="button"
+              onClick={handleExportPdf}
+            >
+              Export PDF
+            </button>
+          </div>
         </form>
       </div>
 
       {/* right */}
-      <div className="flex-2 p-2 overflow-y-scroll bg-[#374151] max-h-screen ">
+      <div className="flex-2 min-h-full p-2 overflow-y-scroll bg-[#374151] max-h-screen rounded-md">
         <div className="text-center my-4">
           <h2 className="text-2xl font-bold">Preview</h2>
         </div>
-        <div
-          ref={previewRef}
-          className="p-4 border bg-[#ffffff] border-[#9ca3af] rounded-md shadow-md min-h-[1122px]"
-        >
+        <div className=" border bg-[#ffffff] border-[#9ca3af] rounded-md shadow-md min-h-[1122px]">
           {/* <Minimalist state={state} /> */}
-          {templateId === "minimalist" && <Minimalist state={state} />}
+          {templateId === "minimalist" && (
+            <Minimalist ref={previewRef} state={state} />
+          )}
+          {templateId === "modern" && <Modern ref={previewRef} state={state} />}
         </div>
       </div>
     </div>

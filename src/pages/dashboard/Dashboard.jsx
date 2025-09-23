@@ -1,6 +1,7 @@
 import { getAuth, signOut } from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import minimalist from "../../assets/minimalist.png";
+import modern from "../../assets/modern.jpeg";
 
 function Dashboard() {
   const auth = getAuth();
@@ -35,10 +36,14 @@ function Dashboard() {
                 >
                   Home
                 </NavLink>
-                
               </li>
               <li className="p-4 text-2xl text-gray-700  w-full">
-                <button className="hover:cursor-pointer" onClick={() => handleSignOut(auth)}>Signout</button>
+                <button
+                  className="hover:cursor-pointer"
+                  onClick={() => handleSignOut(auth)}
+                >
+                  Signout
+                </button>
               </li>
             </ul>
           </div>
@@ -58,13 +63,25 @@ function Dashboard() {
           </div>
           <div>
             <div>
-              <ul>
+              <ul className="flex gap-4">
                 <li>
                   <div className="hover:border w-60 h-70 hover:border-gray-500">
                     <NavLink to="/builder/minimalist">
                       <img
                         src={minimalist}
                         alt="Minimalist Resume Template"
+                        className="w-full h-full rounded-md"
+                      />
+                    </NavLink>
+                  </div>
+                </li>
+
+                <li>
+                  <div className="hover:border w-60 h-70 hover:border-gray-500">
+                    <NavLink to="/builder/modern">
+                      <img
+                        src={modern}
+                        alt="Modern Resume Template"
                         className="w-full h-full rounded-md"
                       />
                     </NavLink>

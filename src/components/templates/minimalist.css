@@ -1,0 +1,9 @@
+.exp-list {
+  list-style: none !important;
+  padding-left: 0;
+}
+.exp-list li::before {
+  content: "•";
+  margin-right: 6px;
+  font-weight: bold;
+}

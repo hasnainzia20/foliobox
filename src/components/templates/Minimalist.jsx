@@ -2,6 +2,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { CiGlobe } from "react-icons/ci";
+import "./minimalist.css";
 
 function Minimalist({ state }) {
   return (
@@ -59,21 +60,26 @@ function Minimalist({ state }) {
                 <h1 className="text-xl font-bold">EDUCATION</h1>
               </div>
               <div>
-                <ul>
+                <ul className=" list-disc list-inside">
                   {state.education.length > 0 ? (
                     state.education.map((edu, i) => {
                       return (
                         <li key={i} className="flex flex-col mb-3">
-                          <p className="font-semibold">
-                            <span>{edu.start ? edu.start : "2022"}</span> to
-                            <span>{edu.end ? edu.end : "2025"}</span>
-                          </p>
-                          <p className="font-semibold">
-                            <span>
-                              {edu.school ? edu.school : "Borcelle University"}
-                            </span>
-                          </p>
-                          <ul className="list-disc list-inside">
+                          <div className="flex justify-between items-baseline mb-1">
+                            <p className="font-semibold">
+                              <span>
+                                {edu.school
+                                  ? edu.school
+                                  : "Borcelle University"}
+                              </span>
+                            </p>
+                            <p className="text-[12px] font-semibold">
+                              <span>{edu.start ? edu.start : "2022"}</span> to
+                              &nbsp;
+                              <span>{edu.end ? edu.end : "2025"}</span>
+                            </p>
+                          </div>
+                          <ul className=" exp-list list-disc list-inside">
                             <li>
                               {edu.degree
                                 ? edu.degree
@@ -90,7 +96,7 @@ function Minimalist({ state }) {
                     })
                   ) : (
                     <li className="flex flex-col mb-3">
-                      <p className="font-semibold">
+                      <p className="text-[12px] font-semibold">
                         <span>2022-02</span>&nbsp;to&nbsp;
                         <span>2025-04</span>
                       </p>
@@ -113,7 +119,7 @@ function Minimalist({ state }) {
                 <h1 className="text-xl font-bold">SKILLS</h1>
               </div>
               <div>
-                <ul className="list-disc list-inside">
+                <ul className="exp-list list-disc list-inside">
                   {state.skills.length > 0 ? (
                     state.skills.map((skill, i) => {
                       return <li key={i}>{skill}</li>;
@@ -174,7 +180,7 @@ function Minimalist({ state }) {
                 <h2>WORK EXPERIENCE</h2>
               </div>
               <div>
-                <ul className="flex flex-col gap-4 list-none">
+                <ul className="flex flex-col gap-4 list-none p-0 m-0">
                   {state.work.length > 0 && state.work.start !== "" ? (
                     state.work.map((job, i) => {
                       return (
@@ -185,7 +191,7 @@ function Minimalist({ state }) {
                                 <span className="font-semibold">
                                   {job.company && job.company}
                                 </span>
-                                <span>
+                                <span className="text-[12px] font-semibold">
                                   {job.start && job.end && `${job.start}`}
                                   {job.start && job.end && (
                                     <span>
@@ -200,7 +206,7 @@ function Minimalist({ state }) {
                               </p>
                             </div>
                             <div>
-                              <ul className="list-disc list-inside text-sm">
+                              <ul className="exp-list list-disc list-inside text-sm">
                                 {state.work[i].responsibilities.length > 0 ? (
                                   state.work[i].responsibilities.map(
                                     (exp, j) => {

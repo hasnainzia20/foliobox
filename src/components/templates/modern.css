@@ -1,0 +1,29 @@
+.exp-div{
+    position: relative;
+}
+.exp-div h2:before{
+    content: "";
+    background: #795200;
+    position: absolute;
+    z-index:99;
+    font-weight: bold;
+    width: 24px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: inline-block;
+}
+
+.exp-list {
+  list-style: none !important;
+  padding-left: 0;
+}
+.exp-list li::before {
+  content: "•";
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.resume {
+    background-color: #CFB57F;
+}
